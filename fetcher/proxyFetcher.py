@@ -170,6 +170,37 @@ class ProxyFetcher(object):
         except Exception as e:
             print(e)
 
+    @staticmethod
+    def shenlongProxy00():
+        """
+        神龙代理 http://api.shenlongip.com/ip?key=taizzp84&count=1
+        """
+        start_url = "http://http.tiqu.alibabaapi.com/getip?num=20&type=1&pack=27357&port=1&lb=1&pb=4&regions="
+        ip_ports = WebRequest().get(start_url).text.split()
+        for ip_port in ip_ports:
+            yield ip_port
+
+    @staticmethod
+    def qingguoProxy00():
+        """
+        神龙代理 http://api.shenlongip.com/ip?key=taizzp84&count=1
+        """
+        start_url = "https://share.proxy.qg.net/pool?key=08625A33&num=10&area=&isp=0&format=txt&seq=\r\n&distinct=false"
+        ip_ports = WebRequest().get(start_url).text.split()
+        for ip_port in ip_ports:
+            yield ip_port
+
+
+    @staticmethod
+    def damaiProxy():
+        start_url = 'https://www.damaiip.com/index.php?s=/front/user/getIPlist&xsn=41c287824602887b4e88e066634e2153&osn=TC_NO171212761093094458&tiqu=1'
+        ip_ports = WebRequest().get(start_url).text.split()
+        for ip_port in ip_ports:
+            yield ip_port
+
+#
+
+
     # @staticmethod
     # def wallProxy01():
     #     """
@@ -235,7 +266,7 @@ class ProxyFetcher(object):
 
 if __name__ == '__main__':
     p = ProxyFetcher()
-    for _ in p.freeProxy06():
+    for _ in p.damaiProxy():
         print(_)
 
 # http://nntime.com/proxy-list-01.htm
