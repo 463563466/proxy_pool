@@ -193,10 +193,12 @@ class ProxyFetcher(object):
 
     @staticmethod
     def damaiProxy():
-        start_url = 'https://www.damaiip.com/index.php?s=/front/user/getIPlist&xsn=41c287824602887b4e88e066634e2153&osn=TC_NO171212761093094458&tiqu=1'
+        start_url = 'http://api.tq.roxlabs.cn/getProxyIp?num=30&return_type=json&lb=1&sb=&flow=1&regions=za&protocol=http'
         ip_ports = WebRequest().get(start_url).text.split()
-        for ip_port in ip_ports:
-            yield ip_port
+        ip_data = json.loads(ip_ports[0]).get('data',[])
+        for ip_port in ip_data:
+            ip = ip_port.get('ip') + ':' + str(ip_port.get('port'))
+            yield ip
 
 #
 

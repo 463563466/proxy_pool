@@ -45,7 +45,7 @@ TABLE_NAME = 'use_proxy'
 
 # ###### config the proxy fetch function ######
 PROXY_FETCHER = [
-    "qingguoProxy00"
+    "damaiProxy"
 ]
 
 # ############# proxy validator #################
@@ -68,7 +68,7 @@ POOL_SIZE_MIN = 1000
 
 # ############# proxy attributes #################
 # 是否启用代理地域属性
-PROXY_REGION = True
+PROXY_REGION = False
 
 # ############# scheduler config #################
 
